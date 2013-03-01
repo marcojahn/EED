@@ -1,17 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>EED</title>
-    <link rel="stylesheet" type="text/css" href="./ext/resources/css/ext-all.css"/>
-    <link rel="stylesheet" type="text/css" href="./css/tasks.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-    <!-- <x-compile> -->
-    <!-- <x-bootstrap> -->
-    <script type="text/javascript" src="./ext/ext-all.js"></script>
-    <!-- </x-bootstrap> -->
+    <link rel="stylesheet" type="text/css" href="../ext/resources/css/ext-all.css"/>
+    <link rel="stylesheet" type="text/css" href="css/eed.css">
+
+    <script type="text/javascript" src="../ext/ext-all-dev.js"></script>
+
+    <script type="text/javascript">
+        Ext.Loader.setConfig({
+            enabled: true,
+            disableCaching: false,
+            paths: {
+                'EED': 'app'
+            }
+        });
+    </script>
+
     <script src="app/EEDSettings.js"></script>
     <script src="app/app.js"></script>
-    <!-- </x-compile> -->
 
 </head>
 <body>
