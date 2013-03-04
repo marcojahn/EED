@@ -8,13 +8,12 @@ Ext.define('EED.view.Viewport', {
     layout: 'border',
 
     initComponent: function () {
-        console.log('building viewport');
-
         this.items = [
             {
                 region: 'north',
                 title: false,
-                html: '<h1>Eschborn Essensbestellung</h1>',
+                bodyPadding: 10,
+                html: '<h1 class="app-headline">Eschborn Essensbestellung</h1>',
                 border: 0
             },
             {

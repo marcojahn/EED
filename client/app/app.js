@@ -24,17 +24,13 @@ Ext.onReady(function () {
         ],
 
         onBeforeLaunch: function () {
-            console.log('onBeforeLaunch');
-
             if (!Ext.state.Manager.get('username', false)) {
                 var usernameWindow = Ext.widget('user-usernamewindow');
 
                 usernameWindow.on('usernamevalid', function () {
-                    console.log('username is valid');
                     Ext.app.Application.prototype.onBeforeLaunch.call(this);
                 }, this);
                 usernameWindow.on('usernameinvalid', function () {
-                    console.log('username is invalid');
                 });
 
                 usernameWindow.show();
@@ -44,7 +40,6 @@ Ext.onReady(function () {
         },
 
         launch: function () {
-            console.log('creating viewport');
             Ext.create('EED.view.Viewport');
         }
     })

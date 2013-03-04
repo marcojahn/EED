@@ -1,0 +1,12 @@
+h1.app-headline {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.lieferant-add {
+    background-image: url(../img/icon-add.png);
+}
+
+.lieferant-remove {
+    background-image: url(../img/icon-delete.png);
+}

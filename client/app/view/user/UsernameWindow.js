@@ -10,8 +10,6 @@ Ext.define('EED.view.user.UsernameWindow', {
     layout: 'fit',
 
     initComponent: function () {
-        console.log('UsernameWindow initComponent');
-
         this.loginForm = this.buildForm();
 
         this.items = [
