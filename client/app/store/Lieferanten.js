@@ -5,9 +5,14 @@ Ext.define('EED.store.Lieferanten', {
 
     storeId: 'Lieferanten',
 
+    autoLoad: true,
+    autoSync: true,
+
     proxy: {
-        type: 'memory'
-    },
+        type: 'ajax',
+        url: 'http://localhost/eed/server/lieferanten.php',
+        reader: 'json'
+    }/*,
 
     data: (function() {
         var lasts = ['Pizza', 'Asia', 'Bratwurst', 'Hähnchen', 'Döner', 'Bäcker'],
@@ -39,5 +44,5 @@ Ext.define('EED.store.Lieferanten', {
             }
 
         return data;
-    })()
+    })()*/
 });

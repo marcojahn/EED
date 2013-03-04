@@ -14,7 +14,7 @@ if ($requestType == 'GET') {
     $data = $SimDB->readData('lieferanten');
 
     $newData = array(
-        'lieferantenId' => time(),
+        'lieferantId' => time(),
         'lieferant' => 'Pizza Aquario',
         'adresse' => 'Mustergasse 21, 12345 Musterstadt',
         'telefon' => '+49 123 456789',
