@@ -6,5 +6,6 @@ Ext.define('EED.controller.Lieferant', {
 
     onLaunch: function () {
         console.log('controller lieferanten onLaunch');
+        this.getLieferantenStore().load();
     }
 });

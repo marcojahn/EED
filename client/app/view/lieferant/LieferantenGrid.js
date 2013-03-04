@@ -17,10 +17,14 @@ Ext.define('EED.view.lieferant.LieferantenGrid', {
 
     columns: [
         {header: 'id', dataIndex: 'lieferantId', editor: undefined},
-        {header: 'Lieferant', dataIndex: 'lieferant', editor: 'textfield'},
-        {header: 'Adresse', dataIndex: 'adresse', editor: 'textfield'},
-        {header: 'Telefon', dataIndex: 'telefon', editor: 'textfield'},
-        {header: 'Webseite', dataIndex: 'url', editor: 'textfield'}
+        {header: 'Lieferant', dataIndex: 'lieferant', flex: 1, editor: 'textfield'},
+        {header: 'Adresse', dataIndex: 'adresse', width: 250, editor: 'textfield'},
+        {header: 'Telefon', dataIndex: 'telefon', width: 150, editor: 'textfield'},
+        {header: 'Webseite', dataIndex: 'url', width: 150, editor: 'textfield', renderer: function (value) {
+            if (value) {
+                return Ext.String.format('<a href="{0}" target="_blank">{1}</a>', value, value)
+            }
+        }}
     ],
 
     tbar: [
@@ -44,7 +48,7 @@ Ext.define('EED.view.lieferant.LieferantenGrid', {
                 });
 
                 store.insert(0, r);
-                rowediting.startEdit(0 ,0);
+                rowediting.startEdit(0, 0);
             }
         },
         {
