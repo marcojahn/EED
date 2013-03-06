@@ -3,6 +3,9 @@ Ext.onReady(function () {
     // apply cookie provider
     Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
 
+    // enable CORS
+    Ext.data.Connection.prototype.useDefaultXhrHeader = false;
+
     Ext.Ajax.defaultHeaders = {
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept-Charset': 'UTF-8'

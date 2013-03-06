@@ -6,8 +6,8 @@ Ext.define('EED.store.Lieferanten', {
     storeId: 'Lieferanten',
 
     proxy: {
-        type: 'ajax',
-        url: 'http://localhost/eed/server/lieferanten.php'
+        type: 'rest',
+        url: 'http://localhost:3000/lieferant'
     },
 
     autoSync: true

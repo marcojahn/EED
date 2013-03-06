@@ -4,7 +4,7 @@ Ext.define('EED.model.Lieferant', {
     idProperty: 'lieferantId',
 
     fields: [
-        {name: 'lieferantId', defaultValue: null, useNull: true},
+        {name: 'lieferantId', mapping: '_id'},
         {name: 'lieferant'},
         {name: 'adresse'},
         {name: 'telefon'},
