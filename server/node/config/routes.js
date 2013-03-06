@@ -6,11 +6,12 @@ module.exports = function (app) {
     // Lieferant routes
     var lieferant = require('../controllers/Lieferant');
     app.get('/lieferant', lieferant.list);
+    // app.get('/lieferant/:id', lieferant.read);
     app.post('/lieferant', lieferant.create);
     app.put('/lieferant/:id', lieferant.update);
+    // app.del('/lieferant/:id', lieferant.delete);
 
     // Bestellung routes
-
 
     // home route
     app.get('/', function (req, res) {
