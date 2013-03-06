@@ -21,7 +21,7 @@ exports.create = function (req, res) {
     });
 };
 
-exports.delete = function (req, res) {
+exports.update = function (req, res) {
     // TODO read notes: http://mongoosejs.com/docs/api.html#model_Model.findOneAndUpdate
     // if defaults/setters/validators/middleware should apply, load first, then modify and save
 
