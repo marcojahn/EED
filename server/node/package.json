@@ -18,6 +18,13 @@
         "express": "3.1.x",
         "mongoose": "3.5.x"
     },
+    "devDependencies": {
+        "vows": "0.7.x",
+        "sinon": "1.6.x"
+    },
+    "scripts": {
+        "test": "vows --spec tests/controllers/Lieferant.js"
+    },
     "engines": {
         "node": "0.8.x",
         "npm": "1.1.x"

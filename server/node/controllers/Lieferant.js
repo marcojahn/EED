@@ -3,9 +3,9 @@ var mongoose = require('mongoose'),
 
 exports.list = function (req, res) {
     // model/artile/list()
-    Lieferant.find({}, function (err, articles) {
+    Lieferant.find({}, function (err, lieferanten) {
         if (err) console.log(err);
-        res.send(articles);
+        res.send(lieferanten);
     });
 };
 

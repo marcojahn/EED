@@ -8,4 +8,16 @@ var LieferantSchema = new Schema({
     url: {type: String, default: null}
 });
 
+LieferantSchema.methods = {
+    testableMethod: function () {
+        console.log('foo');
+    }
+};
+
+LieferantSchema.statics = {
+    staticTestableMethod: function () {
+        console.log('bar');
+    }
+};
+
 mongoose.model('Lieferant', LieferantSchema);
