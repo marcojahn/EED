@@ -3,7 +3,7 @@ var vows = require('vows'),
     assert = require('assert'),
     mongoose = require('mongoose'),
     LieferantModel = require('../../model/Lieferant.js'),
-    LieferantController = require('../controller/Lieferant.js');
+    LieferantController = require('../../controller/Lieferant.js');
 
 vows.describe('Lieferant').addBatch({
     'A Lieferant': {
