@@ -12,6 +12,10 @@ module.exports = function (app) {
     // app.del('/lieferant/:id', lieferant.delete);
 
     // Bestellung routes
+    var bestellung = require('../controllers/Bestellung');
+    app.get('/bestellung', bestellung.list);
+    app.post('/bestellung', bestellung.create);
+    // app.del('/bestellung/:id', bestellung.delete);
 
     // home route
     app.get('/', function (req, res) {

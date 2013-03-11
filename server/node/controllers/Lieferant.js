@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
     Lieferant = mongoose.model('Lieferant');
 
 exports.list = function (req, res) {
-    // model/artile/list()
+    // model/article/list()
     Lieferant.find({}, function (err, lieferanten) {
         if (err) console.log(err);
         res.send(lieferanten);
@@ -32,7 +32,6 @@ exports.update = function (req, res) {
             //if (!lieferant) res.send(new Error('Failed to load Lieferant: ' + req.params.id));
             if (err) console.log(err);
             if (!lieferant) console.log(new Error('Failed to load Lieferant: ' + req.params.id));
-
 
             res.send(lieferant);
         });
