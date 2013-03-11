@@ -49,12 +49,6 @@ Ext.define('EED.view.bestellung.BestellungGrid', {
                 summaryRenderer: function () {return '';}
             },
             {
-                header: 'Lieferant',
-                width: 150,
-                dataIndex: 'lieferant',
-                summaryRenderer: function () {return '';}
-            },
-            {
                 header: 'Preis',
                 width: 60,
                 dataIndex: 'preis',

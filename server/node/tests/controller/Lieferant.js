@@ -2,8 +2,8 @@ var vows = require('vows'),
     sinon = require('sinon'),
     assert = require('assert'),
     mongoose = require('mongoose'),
-    LieferantModel = require('../../models/Lieferant.js'),
-    LieferantController = require('../../controllers/Lieferant.js');
+    LieferantModel = require('../../model/Lieferant.js'),
+    LieferantController = require('../controller/Lieferant.js');
 
 vows.describe('Lieferant').addBatch({
     'A Lieferant': {

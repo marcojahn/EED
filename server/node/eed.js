@@ -11,7 +11,7 @@ var env = process.env.NODE_ENV || 'development',
 mongoose.connect(config.db);
 
 // bootstrap models
-var models_path = __dirname + '/models';
+var models_path = __dirname + '/model';
 fs.readdirSync(models_path).forEach(function (file) {
     require(models_path+'/'+file)
 });

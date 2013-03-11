@@ -18,3 +18,14 @@ exports.create = function (req, res) {
         res.send(bestellung);
     });
 };
+
+exports.delete = function (req, res) {
+    var id = req.query.deleteId;
+    Bestellung.findById(id, function (err, bestellung) {
+        if (err) console.log(err);
+        if (!bestellung) console.log(new Error('Failed deleting Bestellung with id: ' + id));
+
+        bestellung.remove();
+        res.send(bestellung);
+    })
+};

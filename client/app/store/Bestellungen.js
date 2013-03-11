@@ -1,12 +1,11 @@
 Ext.define('EED.store.Bestellungen', {
-    extend: 'Ext.data.Store',
+    extend: 'EED.common.data.Store',
 
     model: 'EED.model.Bestellung',
 
     storeId: 'Bestellungen',
 
     proxy: {
-        //type: 'memory'
         type: 'rest',
         url: 'http://localhost:3000/bestellung'
     },

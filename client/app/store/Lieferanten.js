@@ -1,5 +1,5 @@
 Ext.define('EED.store.Lieferanten', {
-    extend: 'Ext.data.Store',
+    extend: 'EED.common.data.Store',
 
     model: 'EED.model.Lieferant',
 

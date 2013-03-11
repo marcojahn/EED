@@ -23,7 +23,7 @@
         "sinon": "1.6.x"
     },
     "scripts": {
-        "test": "vows --spec tests/controllers/Lieferant.js"
+        "test": "vows --spec tests/controller/Lieferant.js"
     },
     "engines": {
         "node": "0.8.x",
