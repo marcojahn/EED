@@ -1,5 +1,5 @@
 Eschborn Essensbestellung Demo
 ==============================
 
-App der die Möglichkeiten von ExtJS demonstriert.  
+App die die Möglichkeiten von ExtJS demonstriert.
 
