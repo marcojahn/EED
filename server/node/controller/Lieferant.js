@@ -2,7 +2,6 @@ var mongoose = require('mongoose'),
     Lieferant = mongoose.model('Lieferant');
 
 exports.list = function (req, res) {
-    // model/article/list()
     Lieferant.find({}, function (err, lieferanten) {
         if (err) console.log(err);
         res.send(lieferanten);
@@ -11,6 +10,7 @@ exports.list = function (req, res) {
 
 exports.create = function (req, res) {
     var lieferant = new Lieferant();
+
     lieferant.save(function (err, lieferant) {
         if (err) {
             console.log('error lieferant.save:');
@@ -19,6 +19,11 @@ exports.create = function (req, res) {
 
         res.send(lieferant);
     });
+};
+
+exports.createNG = function (req, res) {
+    // todo same as ::create but .create is delegated to model itself for creating a new one and returning it
+    // if possible
 };
 
 exports.update = function (req, res) {
