@@ -12,7 +12,7 @@ Ext.define('EED.controller.Bestellung', {
     ],
 
     onLaunch: function () {
-        //this.getBestellungenStore.load();
+        this.getBestellungenStore().load();
 
         this.control({
             'bestellung-bestellunggrid': {

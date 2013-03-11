@@ -6,11 +6,9 @@ Ext.define('EED.store.Bestellungen', {
     storeId: 'Bestellungen',
 
     proxy: {
-        type: 'memory'
-        /*
+        //type: 'memory'
         type: 'rest',
-        url: 'http://localhost:3000/bestellung
-         */
+        url: 'http://localhost:3000/bestellung'
     },
 
     autoSync: true,

@@ -10,6 +10,8 @@ Ext.onReady(function () {
         startParam: undefined,
         limitParam: undefined,
         pageParam: undefined,
+        sortParam: undefined,
+        groupParam: undefined,
 
         buildUrl: function(request) {
             var me        = this,
@@ -40,5 +42,13 @@ Ext.onReady(function () {
 
             return me.callParent(arguments);
         }
+    });
+
+    Ext.override(Ext.data.proxy.Rest, {
+        startParam: undefined,
+        limitParam: undefined,
+        pageParam: undefined,
+        sortParam: undefined,
+        groupParam: undefined
     });
 });
