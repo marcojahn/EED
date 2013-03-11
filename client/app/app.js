@@ -28,7 +28,8 @@ Ext.onReady(function () {
         ],
 
         controllers: [
-            'EED.controller.Lieferant'
+            'EED.controller.Lieferant',
+            'EED.controller.Bestellung'
         ],
 
         onBeforeLaunch: function () {

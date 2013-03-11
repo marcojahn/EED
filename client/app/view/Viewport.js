@@ -2,7 +2,8 @@ Ext.define('EED.view.Viewport', {
     extend: 'Ext.container.Viewport',
 
     requires: [
-        'EED.view.lieferant.LieferantVerwaltung'
+        'EED.view.lieferant.LieferantVerwaltung',
+        'EED.view.bestellung.BestellungUebersicht'
     ],
 
     layout: 'border',
@@ -35,12 +36,11 @@ Ext.define('EED.view.Viewport', {
             {
                 region: 'center',
                 xtype: 'tabpanel', // TabPanel itself has no title
-                activeTab: 1, // First tab active by default
+                activeTab: 0, // First tab active by default
 
                 items: [
                     {
-                        title: 'Bestellungen',
-                        html: 'panel 1'
+                        xtype: 'bestellung-uebersicht'
                     },
                     {
                         xtype: 'lieferant-lieferantverwaltung'
