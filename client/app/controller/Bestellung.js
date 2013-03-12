@@ -18,6 +18,9 @@ Ext.define('EED.controller.Bestellung', {
             'bestellung-bestellunggrid': {
                 'bestellungdelete': this.removeBestellung
             },
+            'bestellung-bestellunggrid gridview': {
+                'itemdblclick': this.updateBestellung
+            },
             'bestellung-bestellungformular button[action=bestellungsave]': {
                 click: this.saveBestellung
             }
@@ -27,14 +30,20 @@ Ext.define('EED.controller.Bestellung', {
     },
 
     initForm: function () {
-        var form = this.getBestellungForm().getForm(),
-            record = Ext.create('EED.model.Bestellung');
+        var record = Ext.create('EED.model.Bestellung');
+        this.loadFormWithRecord(record);
+    },
+
+    loadFormWithRecord: function (record) {
+        var form = this.getBestellungForm().getForm();
         form.loadRecord(record);
         form.clearInvalid();
     },
 
     removeBestellung: function (grid, rowIndex, colIndex) {
         grid.getStore().removeAt(rowIndex);
+        var form = this.getBestellungForm().getForm();
+        form.clearInvalid();
     },
 
     saveBestellung: function () {
@@ -43,8 +52,18 @@ Ext.define('EED.controller.Bestellung', {
 
         form.updateRecord(record);
 
-        this.getBestellungenStore().add(record);
+        if (record.phantom === true) {
+            this.getBestellungenStore().add(record);
+        } else {
+            // update is a custom overwrite!
+            this.getBestellungenStore().update(record);
+        }
+
         form.reset();
         this.initForm();
+    },
+
+    updateBestellung: function (view, record) {
+        this.loadFormWithRecord(record);
     }
 });
