@@ -11,12 +11,6 @@ Ext.define('EED.controller.Bestellung', {
         }
     ],
 
-    /*viewConfig: {
-        listeners: {
-            itemdblclick: this.updateBestellung
-        }
-    },*/
-
     onLaunch: function () {
         this.getBestellungenStore().load();
 
@@ -36,8 +30,12 @@ Ext.define('EED.controller.Bestellung', {
     },
 
     initForm: function () {
-        var form = this.getBestellungForm().getForm(),
-            record = Ext.create('EED.model.Bestellung');
+        var record = Ext.create('EED.model.Bestellung');
+        this.loadFormWithRecord(record);
+    },
+
+    loadFormWithRecord: function (record) {
+        var form = this.getBestellungForm().getForm();
         form.loadRecord(record);
         form.clearInvalid();
     },
@@ -50,20 +48,13 @@ Ext.define('EED.controller.Bestellung', {
         var form = this.getBestellungForm().getForm(),
             record = form.getRecord();
 
-        console.log(record)
-
         form.updateRecord(record);
 
         if (record.phantom === true) {
             this.getBestellungenStore().add(record);
         } else {
-            //this.getBestellungenStore().add(record);
-            var gridRecord = this.getBestellungenStore().getById(record.get('bestellungId'));
-            gridRecord.set('lieferant', record.get('lieferant'));
-            gridRecord.set('bestellung', record.get('bestellung'));
-            gridRecord.set('preis', record.get('preis'));
-            gridRecord.set('besteller', record.get('besteller'));
-            this.getBestellungenStore().sync();
+            // update is a custom overwrite!
+            this.getBestellungenStore().update(record);
         }
 
         form.reset();
@@ -71,8 +62,6 @@ Ext.define('EED.controller.Bestellung', {
     },
 
     updateBestellung: function (view, record) {
-        var form = this.getBestellungForm().getForm();
-        form.loadRecord(record);
-        form.clearInvalid();
+        this.loadFormWithRecord(record);
     }
 });
