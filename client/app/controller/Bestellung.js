@@ -11,12 +11,22 @@ Ext.define('EED.controller.Bestellung', {
         }
     ],
 
+    /*viewConfig: {
+        listeners: {
+            itemdblclick: this.updateBestellung
+        }
+    },*/
+
     onLaunch: function () {
         this.getBestellungenStore().load();
 
         this.control({
             'bestellung-bestellunggrid': {
                 'bestellungdelete': this.removeBestellung
+            },
+            'bestellung-bestellunggrid gridview': {
+                'itemclick': function () {console.log('item clicked')},
+                'itemdblclick': function () {console.log('item double clicked')}
             },
             'bestellung-bestellungformular button[action=bestellungsave]': {
                 click: this.saveBestellung
@@ -46,5 +56,12 @@ Ext.define('EED.controller.Bestellung', {
         this.getBestellungenStore().add(record);
         form.reset();
         this.initForm();
+    },
+
+    updateBestellung: function (view, record, item, index, e, eOpts) {
+        console.log('update bestellung')
+        console.log(view)
+        console.log(record)
+        console.log(item)
     }
 });
