@@ -19,6 +19,17 @@ exports.create = function (req, res) {
     });
 };
 
+exports.update = function (req, res) {
+    console.log('bestellung update')
+    Bestellung
+        .findByIdAndUpdate(req.params.id, req.body, function (err, bestellung) {
+            if (err) console.log(err);
+            if (!bestellung) console.log(new Error('Failed to load Bestellung: ' + req.params.id));
+
+            res.send(bestellung);
+        });
+};
+
 exports.delete = function (req, res) {
     var id = req.query.deleteId;
     Bestellung.findById(id, function (err, bestellung) {

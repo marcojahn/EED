@@ -15,7 +15,7 @@ module.exports = function (app) {
     var bestellung = require('../controller/Bestellung');
     app.get('/bestellung', bestellung.list);
     app.post('/bestellung', bestellung.create);
-    // app.put('/bestellung/:id', bestellung.update); // TODO doppelklick -> load to form and update
+    app.put('/bestellung/:id', bestellung.update);
     app.del('/bestellung/:id', bestellung.delete);
 
     // home route

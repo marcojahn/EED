@@ -25,8 +25,7 @@ Ext.define('EED.controller.Bestellung', {
                 'bestellungdelete': this.removeBestellung
             },
             'bestellung-bestellunggrid gridview': {
-                'itemclick': function () {console.log('item clicked')},
-                'itemdblclick': function () {console.log('item double clicked')}
+                'itemdblclick': this.updateBestellung
             },
             'bestellung-bestellungformular button[action=bestellungsave]': {
                 click: this.saveBestellung
@@ -51,17 +50,29 @@ Ext.define('EED.controller.Bestellung', {
         var form = this.getBestellungForm().getForm(),
             record = form.getRecord();
 
+        console.log(record)
+
         form.updateRecord(record);
 
-        this.getBestellungenStore().add(record);
+        if (record.phantom === true) {
+            this.getBestellungenStore().add(record);
+        } else {
+            //this.getBestellungenStore().add(record);
+            var gridRecord = this.getBestellungenStore().getById(record.get('bestellungId'));
+            gridRecord.set('lieferant', record.get('lieferant'));
+            gridRecord.set('bestellung', record.get('bestellung'));
+            gridRecord.set('preis', record.get('preis'));
+            gridRecord.set('besteller', record.get('besteller'));
+            this.getBestellungenStore().sync();
+        }
+
         form.reset();
         this.initForm();
     },
 
-    updateBestellung: function (view, record, item, index, e, eOpts) {
-        console.log('update bestellung')
-        console.log(view)
-        console.log(record)
-        console.log(item)
+    updateBestellung: function (view, record) {
+        var form = this.getBestellungForm().getForm();
+        form.loadRecord(record);
+        form.clearInvalid();
     }
 });
