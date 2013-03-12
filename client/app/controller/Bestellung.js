@@ -42,6 +42,8 @@ Ext.define('EED.controller.Bestellung', {
 
     removeBestellung: function (grid, rowIndex, colIndex) {
         grid.getStore().removeAt(rowIndex);
+        var form = this.getBestellungForm().getForm();
+        form.clearInvalid();
     },
 
     saveBestellung: function () {
