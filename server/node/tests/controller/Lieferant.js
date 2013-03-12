@@ -1,68 +1,56 @@
 var vows = require('vows'),
     sinon = require('sinon'),
     assert = require('assert'),
+    express = require('express'),
     mongoose = require('mongoose'),
     LieferantModel = require('../../model/Lieferant.js'),
     LieferantController = require('../../controller/Lieferant.js');
 
-vows.describe('Lieferant').addBatch({
-    'A Lieferant': {
-        'returns a list': function () {
-            // console.log(mongoose.model('Lieferant').prototype.testableMethod); // ok
-            // console.log(mongoose.model('Lieferant').staticTestableMethod); //
-            var result = {
-                '__v':0,
-                '_id':'513755f91d95505c5e000001',
-                'url':'',
-                'telefon':'',
-                'adresse':'Mustergasse 22',
-                'lieferant':'Pizza Aquario'
-            };
+var result = {
+    '__v':0,
+    '_id':'513755f91d95505c5e000001',
+    'url':'',
+    'telefon':'',
+    'adresse':'Mustergasse 22',
+    'lieferant':'Pizza Aquario'
+};
 
+vows.describe('Lieferant controller').addBatch({
+    'calling list': {
+        topic: function () {
             var stub = sinon.stub(mongoose.Model, 'find');
             stub.callsArgWith(1, undefined, result);
 
-            // TODO move + complete
-            var responseApi = {
-                send: function (input) {
-                    assert.equal(result, input);
-                }
-            };
-
-            var mock = sinon.mock(responseApi);
+            var mock = sinon.mock(express.response);
             mock.expects('send').once().withArgs(result);
-            LieferantController.list(undefined, responseApi);
 
-            mock.verify();
-        }/*,
-        'returns new created lieferant': function () {
-            var result = {
-                '__v':0,
-                '_id':'513755f91d95505c5e000001',
-                'url':'',
-                'telefon':'',
-                'adresse':'',
-                'lieferant':''
-            };
+            LieferantController.list(undefined, express.response);
 
-            console.log('wichtig');
-
+            return mock;
+        },
+        'calls response.send with result': function (topic) {
+            // console.log(mongoose.model('Lieferant').prototype.testableMethod); // ok
+            // console.log(mongoose.model('Lieferant').staticTestableMethod); //
+            topic.verify();
+            topic.restore();
+        }
+    }
+}).addBatch({
+    'calling create': {
+        topic: function () {
             var stub = sinon.stub(mongoose.model('Lieferant').prototype, 'save');
             stub.callsArgWith(0, undefined, result);
 
-            // TODO move + complete
-            var responseApi = {
-                send: function (input) {
-                    //assert.equal(result, input);
-                    console.log('response api')
-                }
-            };
+            this.mock = sinon.mock(express.response);
+            this.mock.expects('send').once().withArgs(result);
 
-            var mock = sinon.mock(responseApi);
-            mock.expects('send').once().withArgs(result);
-            LieferantController.create(undefined, responseApi);
+            LieferantController.create(undefined, express.response);
 
-            mock.verify();
-        }*/
+            process.nextTick(this.callback);
+        },
+        'calls response.send with result': function () {
+            this.mock.verify();
+            this.mock.restore();
+        }
     }
 }).export(module);
