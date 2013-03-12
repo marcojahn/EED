@@ -11,21 +11,21 @@ vows.describe('Lieferant').addBatch({
             // console.log(mongoose.model('Lieferant').prototype.testableMethod); // ok
             // console.log(mongoose.model('Lieferant').staticTestableMethod); //
             var result = {
-                "__v":0,
-                "_id":"513755f91d95505c5e000001",
-                "url":"",
-                "telefon":"",
-                "adresse":"Mustergasse 22",
-                "lieferant":"Pizza Aquario"
+                '__v':0,
+                '_id':'513755f91d95505c5e000001',
+                'url':'',
+                'telefon':'',
+                'adresse':'Mustergasse 22',
+                'lieferant':'Pizza Aquario'
             };
 
-            var stub = sinon.stub(mongoose.Model, "find");
+            var stub = sinon.stub(mongoose.Model, 'find');
             stub.callsArgWith(1, undefined, result);
 
             // TODO move + complete
             var responseApi = {
                 send: function (input) {
-                    //assert.equal(result, input);
+                    assert.equal(result, input);
                 }
             };
 
@@ -34,6 +34,35 @@ vows.describe('Lieferant').addBatch({
             LieferantController.list(undefined, responseApi);
 
             mock.verify();
-        }
+        }/*,
+        'returns new created lieferant': function () {
+            var result = {
+                '__v':0,
+                '_id':'513755f91d95505c5e000001',
+                'url':'',
+                'telefon':'',
+                'adresse':'',
+                'lieferant':''
+            };
+
+            console.log('wichtig');
+
+            var stub = sinon.stub(mongoose.model('Lieferant').prototype, 'save');
+            stub.callsArgWith(0, undefined, result);
+
+            // TODO move + complete
+            var responseApi = {
+                send: function (input) {
+                    //assert.equal(result, input);
+                    console.log('response api')
+                }
+            };
+
+            var mock = sinon.mock(responseApi);
+            mock.expects('send').once().withArgs(result);
+            LieferantController.create(undefined, responseApi);
+
+            mock.verify();
+        }*/
     }
 }).export(module);
