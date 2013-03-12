@@ -25,5 +25,18 @@ Ext.define('EED.common.data.Store', {
                 // options.getRecords()[0].getId()
             }
         }, this);
+    },
+
+    update: function (records) {
+        var i, iLen, gridRecord;
+
+        if (!Ext.isArray(records)) {
+            records = [records];
+        }
+
+        for (i = 0, iLen = records.length; i < iLen; i++) {
+            gridRecord = this.getById(records[i].getId());
+            gridRecord.set(records[i].getChanges());
+        }
     }
 });
