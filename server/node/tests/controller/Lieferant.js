@@ -3,7 +3,6 @@ var vows = require('vows'),
     assert = require('assert'),
     express = require('express'),
     mongoose = require('mongoose'),
-    LieferantModel = require('../../model/Lieferant.js'),
     LieferantController = require('../../controller/Lieferant.js');
 
 var result = {
