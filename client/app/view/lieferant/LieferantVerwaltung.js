@@ -21,7 +21,9 @@ Ext.define('EED.view.lieferant.LieferantVerwaltung', {
 
     buildItems: function () {
         return [
-            {xtype: 'lieferant-lieferantengrid'}
+            {
+                xtype: 'lieferant-lieferantengrid'
+            }
         ];
     }
 });

@@ -22,8 +22,12 @@ Ext.define('EED.view.bestellung.BestellungUebersicht', {
 
     buildItems: function () {
         return [
-            {xtype: 'bestellung-bestellungformular'},
-            {xtype: 'bestellung-bestellunggrid'}
+            {
+                xtype: 'bestellung-bestellungformular'
+            },
+            {
+                xtype: 'bestellung-bestellunggrid'
+            }
         ]
     }
 });

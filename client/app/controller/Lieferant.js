@@ -4,13 +4,16 @@ Ext.define('EED.controller.Lieferant', {
     models: ['Lieferant'],
     stores: ['Lieferanten'],
 
-    refs: [{
-        ref: 'lieferantengridDeleteButton',
-        selector: '#lieferant-lieferantengrid button[action=lieferant-remove]'
-    }, {
-        ref: 'lieferantengrid',
-        selector: '#lieferant-lieferantengrid'
-    }],
+    refs: [
+        {
+            ref: 'lieferantengridDeleteButton',
+            selector: '#lieferant-lieferantengrid button[action=lieferant-remove]'
+        },
+        {
+            ref: 'lieferantengrid',
+            selector: '#lieferant-lieferantengrid'
+        }
+    ],
 
     onLaunch: function () {
         this.getLieferantenStore().load();
@@ -39,7 +42,7 @@ Ext.define('EED.controller.Lieferant', {
             lieferant: 'Lieferant-Name',
             adresse: '',
             telefon: '',
-            url: 'http://www.google.de'
+            url: 'http://www.google.de'         //TODO: default data -> model?
         });
 
         store.insert(0, r);
@@ -59,6 +62,6 @@ Ext.define('EED.controller.Lieferant', {
     },
 
     selectLieferant: function (selModel, records) {
-        this.getLieferantengridDeleteButton().setDisabled(!records.length)
+        this.getLieferantengridDeleteButton().setDisabled(!records.length);
     }
 });

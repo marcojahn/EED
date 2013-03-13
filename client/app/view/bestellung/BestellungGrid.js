@@ -16,18 +16,28 @@ Ext.define('EED.view.bestellung.BestellungGrid', {
     height: 300,
     width: 600,
 
-    features: [{
-        id: 'group',
-        ftype: 'groupingsummary',
-        enableGroupingMenu: false
-    }],
+    features: [
+        {
+            id: 'group',
+            ftype: 'groupingsummary',
+            enableGroupingMenu: false
+        }
+    ],
 
     initComponent: function () {
         this.columns = this.buildColumns();
 
         this.callParent(arguments);
 
-        this.addEvents('bestellungdelete');
+        this.addEvents(
+            /**
+             * @event bestellungdelete
+             * @param {Ext.grid.Panel} grid
+             * @param {Number} rowIndex
+             * @param {Number} colIndex
+             */
+            'bestellungdelete'
+        );
     },
 
     buildColumns: function () {

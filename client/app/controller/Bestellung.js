@@ -30,8 +30,8 @@ Ext.define('EED.controller.Bestellung', {
     },
 
     initForm: function () {
-        var record = Ext.create('EED.model.Bestellung');
-        this.loadFormWithRecord(record);
+        var newRecord = Ext.create('EED.model.Bestellung');
+        this.loadFormWithRecord(newRecord);
     },
 
     loadFormWithRecord: function (record) {
@@ -52,7 +52,7 @@ Ext.define('EED.controller.Bestellung', {
 
         form.updateRecord(record);
 
-        if (record.phantom === true) {
+        if (record.phantom === true) {      // TODO: look for getter
             this.getBestellungenStore().add(record);
         } else {
             // update is a custom overwrite!
