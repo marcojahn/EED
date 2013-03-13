@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templateSet group="Dialog PD">
+  <template name="app_01" value="Ext.application({&#10;    name: 'EED',&#10;    autoCreateViewport: false,&#10;&#10;    requires: [&#10;        'EED.view.user.UsernameWindow',&#10;        'EED.view.Viewport'&#10;    ],&#10;&#10;    controllers: [&#10;        'EED.controller.Lieferant',&#10;        'EED.controller.Bestellung'&#10;    ],&#10;&#10;    onBeforeLaunch: function () {&#10;        if (!Ext.state.Manager.get('username', false)) {&#10;            var usernameWindow = Ext.widget('user-usernamewindow');&#10;&#10;            usernameWindow.on('usernamevalid', function () {&#10;                Ext.app.Application.prototype.onBeforeLaunch.call(this);&#10;            }, this);&#10;            usernameWindow.on('usernameinvalid', function () {&#10;            });&#10;&#10;            usernameWindow.show();&#10;        } else {&#10;            Ext.app.Application.prototype.onBeforeLaunch.call(this);&#10;        }&#10;    },&#10;&#10;    launch: function () {&#10;        Ext.create('EED.view.Viewport');&#10;    }&#10;});" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+</templateSet>
+
