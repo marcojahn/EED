@@ -28,8 +28,6 @@ Ext.define('EED.view.Viewport', {
                 title: 'Navigation',
                 width: 250,
 
-                // could use a TreePanel or AccordionLayout for navigational items
-                //xtype : 'navigation-gridtree'
                 html: 'navigation'
             },
             {

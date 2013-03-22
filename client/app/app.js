@@ -1,13 +1,8 @@
 Ext.onReady(function () {
 
-    Ext.data.Connection.timeout = 5000;
-    Ext.Ajax.timeout = 5000;
-
-    Ext.ns('EED.application');
-
     Ext.application({
         name: 'EED',
-        autoCreateViewport: false,
+        autoCreateViewport: false, // prevent viewport creation
 
         requires: [
             'EED.view.user.UsernameWindow',
@@ -19,6 +14,10 @@ Ext.onReady(function () {
             'EED.controller.Bestellung'
         ],
 
+        /**
+         * Shows and handles username dialog if no cookie value is set.
+         * Runs bootstrap if setting is done or exists.
+         */
         onBeforeLaunch: function () {
             if (!Ext.state.Manager.get('username', false)) {
                 var usernameWindow = Ext.widget('user-usernamewindow');
@@ -31,10 +30,14 @@ Ext.onReady(function () {
 
                 usernameWindow.show();
             } else {
+                // call parent and continue bootstrap
                 Ext.app.Application.prototype.onBeforeLaunch.call(this);
             }
         },
 
+        /**
+         * Launch application and create viewport
+         */
         launch: function () {
             Ext.create('EED.view.Viewport');
         }

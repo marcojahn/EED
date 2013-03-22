@@ -22,7 +22,7 @@ Ext.define('EED.view.user.UsernameWindow', {
     },
 
     buildForm: function () {
-        var me = this; // TODo replace
+        var me = this; // TODO replace
 
         return {
             xtype: 'form',

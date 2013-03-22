@@ -15,7 +15,11 @@ Ext.define('EED.controller.Lieferant', {
         }
     ],
 
+    /**
+     * Launch Methode des Controllers.
+     */
     onLaunch: function () {
+        // Laden der Lieferanten
         this.getLieferantenStore().load();
 
         this.control({
@@ -31,24 +35,25 @@ Ext.define('EED.controller.Lieferant', {
         });
     },
 
+    /**
+     * Neuen Lieferanten hinzufügen.
+     */
     addLieferant: function () {
         var store = this.getLieferantenStore(),
             rowediting = this.getLieferantengrid().getPlugin('rowediting');
 
-        rowediting.cancelEdit();
+        rowediting.cancelEdit(); // evtl. bestehenden Edit Prozess beenden
 
-        // create lieferant
-        var r = Ext.create('EED.model.Lieferant', {
-            lieferant: 'Lieferant-Name',
-            adresse: '',
-            telefon: '',
-            url: 'http://www.google.de'         //TODO: default data -> model?
-        });
+        // Neuen Lieferant erzeugen
+        var r = Ext.create('EED.model.Lieferant');
 
-        store.insert(0, r);
-        rowediting.startEdit(0, 0);
+        store.insert(0, r); // Lieferant an erster Stelle hinzufügen
+        rowediting.startEdit(0, 0); // Edit Prozess für neuen Datensatz starten
     },
 
+    /**
+     * Lieferanten löschen.
+     */
     removeLieferant: function () {
         var sm = this.getLieferantengrid().getSelectionModel(),
             store = this.getLieferantenStore(),
@@ -61,6 +66,12 @@ Ext.define('EED.controller.Lieferant', {
         }
     },
 
+    /**
+     * Selektion eines Mandanten aktiviert oder deaktiviert den delete Button.
+     *
+     * @param {Ext.selection.Model} selModel SelectionModel des Grids.
+     * @param {EED.model.Lieferant[]} records Liste ausgwählter Lieferanten.
+     */
     selectLieferant: function (selModel, records) {
         this.getLieferantengridDeleteButton().setDisabled(!records.length);
     }

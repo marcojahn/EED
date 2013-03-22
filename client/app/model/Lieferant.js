@@ -5,9 +5,9 @@ Ext.define('EED.model.Lieferant', {
 
     fields: [
         {name: 'lieferantId', mapping: '_id'},
-        {name: 'lieferant'},
+        {name: 'lieferant', defaultValue: 'Lieferant-Name'},
         {name: 'adresse'},
         {name: 'telefon'},
-        {name: 'url'}
+        {name: 'url', defaultValue: 'http://www.example.com'}
     ]
 });
