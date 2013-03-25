@@ -24,3 +24,5 @@ Ein lokaler Webserver für statische Dateien (z.b. Apache) muss verfügbar sein.
 1. MongoDB starten
 2. NodeJS starten (Verzeichnis: server/node/) <pre>node eed.js</pre>
 2.1. "Express app started on port 3000" zeigt, dass der NodeJS Server läuft.
+3. Verzeichnis / in einem Webserver einbinden
+4. In einem Browser [](http://localhost/client) aufrufen.
