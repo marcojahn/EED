@@ -1,6 +1,329 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templateSet group="Dialog PD">
-  <template name="app_01" value="Ext.application({&#10;    name: 'EED',&#10;    autoCreateViewport: false,&#10;&#10;    requires: [&#10;        'EED.view.user.UsernameWindow',&#10;        'EED.view.Viewport'&#10;    ],&#10;&#10;    controllers: [&#10;        'EED.controller.Lieferant',&#10;        'EED.controller.Bestellung'&#10;    ],&#10;&#10;    onBeforeLaunch: function () {&#10;        if (!Ext.state.Manager.get('username', false)) {&#10;            var usernameWindow = Ext.widget('user-usernamewindow');&#10;&#10;            usernameWindow.on('usernamevalid', function () {&#10;                Ext.app.Application.prototype.onBeforeLaunch.call(this);&#10;            }, this);&#10;            usernameWindow.on('usernameinvalid', function () {&#10;            });&#10;&#10;            usernameWindow.show();&#10;        } else {&#10;            Ext.app.Application.prototype.onBeforeLaunch.call(this);&#10;        }&#10;    },&#10;&#10;    launch: function () {&#10;        Ext.create('EED.view.Viewport');&#10;    }&#10;});" toReformat="false" toShortenFQNames="true">
+  <template name="app_start" value="Ext.application({&#10;    name: 'EED',&#10;    autoCreateViewport: false, // prevent viewport creation&#10;&#10;    //(app_requires)&#10;&#10;    //(app_controllers)&#10;&#10;    //(app_onbeforelaunch)&#10;&#10;    /**&#10;     * Launch application and create viewport&#10;     */&#10;    launch: function () {&#10;        Ext.create('EED.view.Viewport');&#10;    }&#10;});" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="app_requires" value="        requires: [&#10;            'EED.view.user.UsernameWindow',&#10;            'EED.view.Viewport'&#10;        ]," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="app_controllers" value="        controllers: [&#10;            'EED.controller.Lieferant',&#10;            'EED.controller.Bestellung'&#10;        ]," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="app_onbeforelaunch" value="        /**&#10;         * Shows and handles username dialog if no cookie value is set.&#10;         * Runs bootstrap if setting is done or exists.&#10;         */&#10;        onBeforeLaunch: function () {&#10;            if (!Ext.state.Manager.get('username', false)) {&#10;                var usernameWindow = Ext.widget('user-usernamewindow');&#10;&#10;                usernameWindow.on('usernamevalid', function () {&#10;                    Ext.app.Application.prototype.onBeforeLaunch.call(this);&#10;                }, this);&#10;                usernameWindow.on('usernameinvalid', function () {&#10;                });&#10;&#10;                usernameWindow.show();&#10;            } else {&#10;                // call parent and continue bootstrap&#10;                Ext.app.Application.prototype.onBeforeLaunch.call(this);&#10;            }&#10;        }," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="viewport_start" value="Ext.define('EED.view.Viewport', {&#10;    extend: 'Ext.container.Viewport',&#10;&#10;    //(viewport_requires)&#10;&#10;    layout: 'border',&#10;&#10;    initComponent: function () {&#10;        this.items = [&#10;            {&#10;                region: 'north',&#10;                title: false,&#10;                bodyPadding: 10,&#10;                html: '&lt;h1 class=&quot;app-headline&quot;&gt;Eschborn Essensbestellung&lt;/h1&gt;',&#10;                border: 0&#10;            },&#10;            {&#10;                region: 'south',&#10;                title: '&amp;copy; 2013 Marco Jahn &amp; Remko Plantenga',&#10;                split: false&#10;            },&#10;            {&#10;                region: 'west',&#10;                collapsed: true,&#10;                collapsible: true,&#10;                title: 'Navigation',&#10;                width: 250,&#10;&#10;                html: 'navigation'&#10;            },&#10;            {&#10;                region: 'center',&#10;                xtype: 'tabpanel', // TabPanel itself has no title&#10;                activeTab: 0, // First tab active by default&#10;&#10;                //(viewport_items)&#10;&#10;                defaults: {&#10;                    closable: true // all children are closeable by default&#10;                }&#10;            }&#10;        ];&#10;&#10;        this.callParent(arguments);&#10;    }&#10;});" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="viewport_requires" value="requires: [&#10;    'EED.view.lieferant.LieferantVerwaltung',&#10;    'EED.view.bestellung.BestellungUebersicht'&#10;]," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="viewport_items" value="items: [&#10;    {&#10;        xtype: 'bestellung-uebersicht'&#10;    },&#10;    {&#10;        xtype: 'lieferant-lieferantverwaltung'&#10;    }&#10;    //(viewport_dev)&#10;]," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="viewport_dev" value=",&#10;{&#10;    title: 'DEV',&#10;    items: [{&#10;        xtype: 'button',&#10;        text: 'Delete Cookie',&#10;        handler: function () {&#10;            Ext.state.Manager.clear('username');&#10;            window.location.reload();&#10;        }&#10;    }]&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="lieferantverwaltung_start" value="Ext.define('EED.view.lieferant.LieferantVerwaltung', {&#10;    extend: 'Ext.container.Container',&#10;&#10;    //(lieferantverwaltung_requires)&#10;&#10;    id: 'lieferant-lieferantverwaltung',&#10;&#10;    alias: 'widget.lieferant-lieferantverwaltung',&#10;&#10;    title: 'Lieferanten Verwaltung',&#10;&#10;    padding: 20,&#10;&#10;    //(lieferantverwaltung_initcomponent)&#10;});" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="lieferantverwaltung_requires" value="requires: [&#10;    'EED.view.lieferant.LieferantenGrid'&#10;]," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="lieferantverwaltung_builditems" value=",&#10;&#10;buildItems: function () {&#10;    return [&#10;        {&#10;            xtype: 'lieferant-lieferantengrid'&#10;        }&#10;    ];&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="lieferantengrid_start" value="Ext.define('EED.view.lieferant.LieferantenGrid', {&#10;    extend: 'Ext.grid.GridPanel',&#10;&#10;    //(lieferantengrid_requires)&#10;&#10;    id: 'lieferant-lieferantengrid',&#10;&#10;    alias: 'widget.lieferant-lieferantengrid',&#10;&#10;    //(lieferantengrid_store)&#10;&#10;    title: 'Lieferantenliste',&#10;&#10;    height: 400,&#10;&#10;    //(lieferantengrid_columns)&#10;&#10;    //(lieferantengrid_tbar)&#10;&#10;    selType: 'rowmodel',&#10;&#10;    plugins: [&#10;        Ext.create('Ext.grid.plugin.RowEditing', {&#10;            clicksToMoveEditor: 1,&#10;            autoCancel: false,&#10;            pluginId: 'rowediting'&#10;        })&#10;    ]&#10;});" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="lieferantengrid_store" value="store: 'Lieferanten'," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="lieferantengrid_tbar" value="tbar: [&#10;    {&#10;        text: 'Lieferant hinzufügen',&#10;        iconCls: 'lieferant-add',&#10;        action: 'lieferant-add'&#10;    },&#10;    {&#10;        text: 'Lieferant löschen',&#10;        iconCls: 'lieferant-remove',&#10;        action: 'lieferant-remove',&#10;        disabled: true&#10;    }&#10;]," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="lieferantengrid_requires" value="requires: [&#10;    'EED.store.Lieferanten'&#10;]," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="lieferantengrid_columns" value="columns: [&#10;    {header: 'id', dataIndex: 'lieferantId', editor: undefined},&#10;    {header: 'Lieferant', dataIndex: 'lieferant', flex: 1, editor: 'textfield'},&#10;    {header: 'Adresse', dataIndex: 'adresse', width: 250, editor: 'textfield'},&#10;    {header: 'Telefon', dataIndex: 'telefon', width: 150, editor: 'textfield'},&#10;    {header: 'Webseite', dataIndex: 'url', width: 150, editor: 'textfield', renderer: function (value) {&#10;        if (value) {&#10;            return Ext.String.format('&lt;a href=&quot;{0}&quot; target=&quot;_blank&quot;&gt;{1}&lt;/a&gt;', value, value);&#10;        }&#10;    }}&#10;]," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellunguebersicht_start" value="Ext.define('EED.view.bestellung.BestellungUebersicht', {&#10;    extend: 'Ext.container.Container',&#10;&#10;    //(bestellunguebersicht_requires)&#10;&#10;    id: 'bestellung-uebersicht',&#10;&#10;    alias: 'widget.bestellung-uebersicht',&#10;&#10;    title: 'Bestellung Übersicht',&#10;&#10;    padding: 20,&#10;&#10;    //(bestellunguebersicht_initcomponent)&#10;});" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellunguebersicht_requires" value="requires: [&#10;    'EED.view.bestellung.BestellungFormular',&#10;    'EED.view.bestellung.BestellungGrid'&#10;]," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="lieferantverwaltung_initcomponent" value="initComponent: function () {&#10;    this.items = this.buildItems();&#10;&#10;    this.callParent(arguments);&#10;}//lieferantverwaltung_builditems" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellunguebersicht_initcomponent" value="initComponent: function () {&#10;    this.items = this.buildItems();&#10;&#10;    this.callParent(arguments);&#10;},&#10;&#10;buildItems: function () {&#10;    return [&#10;        {&#10;            xtype: 'bestellung-bestellungformular'&#10;        },&#10;        {&#10;            xtype: 'bestellung-bestellunggrid'&#10;        }&#10;    ];&#10;}" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
