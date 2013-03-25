@@ -1,7 +1,7 @@
 Ext.define('EED.view.bestellung.BestellungUebersicht', {
     extend: 'Ext.container.Container',
 
-    requires:[
+    requires: [
         'EED.view.bestellung.BestellungFormular',
         'EED.view.bestellung.BestellungGrid'
     ],
