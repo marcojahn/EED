@@ -41,5 +41,5 @@ Ext.onReady(function () {
         launch: function () {
             Ext.create('EED.view.Viewport');
         }
-    })
+    });
 });
