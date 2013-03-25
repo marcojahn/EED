@@ -22,7 +22,7 @@ Ext.define('EED.view.lieferant.LieferantenGrid', {
         {header: 'Telefon', dataIndex: 'telefon', width: 150, editor: 'textfield'},
         {header: 'Webseite', dataIndex: 'url', width: 150, editor: 'textfield', renderer: function (value) {
             if (value) {
-                return Ext.String.format('<a href="{0}" target="_blank">{1}</a>', value, value)
+                return Ext.String.format('<a href="{0}" target="_blank">{1}</a>', value, value);
             }
         }}
     ],
