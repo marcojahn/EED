@@ -28,6 +28,6 @@ Ext.define('EED.view.bestellung.BestellungUebersicht', {
             {
                 xtype: 'bestellung-bestellunggrid'
             }
-        ]
+        ];
     }
 });
