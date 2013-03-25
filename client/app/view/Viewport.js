@@ -57,7 +57,7 @@ Ext.define('EED.view.Viewport', {
                 ],
 
                 defaults: {
-                    closable: true
+                    closable: true // all children are closeable by default
                 }
             }
         ];
