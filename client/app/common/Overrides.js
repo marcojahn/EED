@@ -12,6 +12,7 @@ Ext.onReady(function () {
         pageParam: undefined,
         sortParam: undefined,
         groupParam: undefined,
+        filterParam: undefined,
 
         buildUrl: function(request) {
             var me        = this,
@@ -49,6 +50,7 @@ Ext.onReady(function () {
         limitParam: undefined,
         pageParam: undefined,
         sortParam: undefined,
-        groupParam: undefined
+        groupParam: undefined,
+        filterParam: undefined
     });
 });

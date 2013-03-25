@@ -19,7 +19,7 @@ Ext.onReady(function () {
     // Ext.Ajax.cors = true;
 
     Ext.Ajax.defaultHeaders = {
-        'Content-Type': 'application/json; charset=UTF-8',
-        'Accept-Charset': 'UTF-8'
+        'Content-Type': 'application/json; charset=UTF-8'/*,
+        'Accept-Charset': 'UTF-8'*/
     };
 });

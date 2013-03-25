@@ -24,6 +24,7 @@ Ext.define('EED.view.Viewport', {
             },
             {
                 region: 'west',
+                collapsed: true,
                 collapsible: true,
                 title: 'Navigation',
                 width: 250,
