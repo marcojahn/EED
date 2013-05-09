@@ -56,7 +56,7 @@ Ext.define('EED.view.bestellung.BestellungFormular', {
                 name: 'besteller',
                 fieldLabel: 'Besteller'
             }
-        ]
+        ];
     },
 
     buildButtons: function () {

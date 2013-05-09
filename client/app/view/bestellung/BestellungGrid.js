@@ -56,7 +56,7 @@ Ext.define('EED.view.bestellung.BestellungGrid', {
                 header: 'Bestellwunsch',
                 flex: 1,
                 dataIndex: 'bestellung',
-                summaryRenderer: function () {return '';}
+                summaryRenderer: function () { return ''; }
             },
             {
                 header: 'Preis',
