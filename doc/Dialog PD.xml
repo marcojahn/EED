@@ -17,7 +17,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="app_requires" value="        requires: [&#10;            'EED.view.user.UsernameWindow',&#10;            'EED.view.Viewport'&#10;        ]," toReformat="false" toShortenFQNames="true">
+  <template name="app_requires" value="requires: [&#10;    'EED.view.user.UsernameWindow',&#10;    'EED.view.Viewport'&#10;]," toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
@@ -187,7 +187,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="lieferantengrid_start" value="Ext.define('EED.view.lieferant.LieferantenGrid', {&#10;    extend: 'Ext.grid.GridPanel',&#10;&#10;    //(lieferantengrid_requires)&#10;&#10;    id: 'lieferant-lieferantengrid',&#10;&#10;    alias: 'widget.lieferant-lieferantengrid',&#10;&#10;    //(lieferantengrid_store)&#10;&#10;    title: 'Lieferantenliste',&#10;&#10;    height: 400,&#10;&#10;    //(lieferantengrid_columns)&#10;&#10;    //(lieferantengrid_tbar)&#10;&#10;    selType: 'rowmodel',&#10;&#10;    plugins: [&#10;        Ext.create('Ext.grid.plugin.RowEditing', {&#10;            clicksToMoveEditor: 1,&#10;            autoCancel: false,&#10;            pluginId: 'rowediting'&#10;        })&#10;    ]&#10;});" toReformat="false" toShortenFQNames="true">
+  <template name="lieferantengrid_start" value="Ext.define('EED.view.lieferant.LieferantenGrid', {&#10;    extend: 'Ext.grid.GridPanel',&#10;&#10;    //(lieferantengrid_requires)&#10;&#10;    id: 'lieferant-lieferantengrid',&#10;&#10;    alias: 'widget.lieferant-lieferantengrid',&#10;&#10;    //(lieferantengrid_store)&#10;&#10;    title: 'Lieferantenliste',&#10;&#10;    height: 400,&#10;&#10;    columns: [&#10;        //(lieferantengrid_columns)&#10;    ],&#10;&#10;    //(lieferantengrid_tbar)&#10;&#10;    selType: 'rowmodel',&#10;&#10;    plugins: [&#10;        Ext.create('Ext.grid.plugin.RowEditing', {&#10;            clicksToMoveEditor: 1,&#10;            autoCancel: false,&#10;            pluginId: 'rowediting'&#10;        })&#10;    ]&#10;});" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
@@ -255,7 +255,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="lieferantengrid_columns" value="columns: [&#10;    {header: 'id', dataIndex: 'lieferantId', editor: undefined},&#10;    {header: 'Lieferant', dataIndex: 'lieferant', flex: 1, editor: 'textfield'},&#10;    {header: 'Adresse', dataIndex: 'adresse', width: 250, editor: 'textfield'},&#10;    {header: 'Telefon', dataIndex: 'telefon', width: 150, editor: 'textfield'},&#10;    {header: 'Webseite', dataIndex: 'url', width: 150, editor: 'textfield', renderer: function (value) {&#10;        if (value) {&#10;            return Ext.String.format('&lt;a href=&quot;{0}&quot; target=&quot;_blank&quot;&gt;{1}&lt;/a&gt;', value, value);&#10;        }&#10;    }}&#10;]," toReformat="false" toShortenFQNames="true">
+  <template name="lieferantengrid_columns" value="{header: 'id', dataIndex: 'lieferantId', editor: undefined},&#10;{header: 'Lieferant', dataIndex: 'lieferant', flex: 1, editor: 'textfield'},&#10;{header: 'Adresse', dataIndex: 'adresse', width: 250, editor: 'textfield'},&#10;{header: 'Telefon', dataIndex: 'telefon', width: 150, editor: 'textfield'},&#10;{header: 'Webseite', dataIndex: 'url', width: 150, editor: 'textfield', renderer: function (value) {&#10;    if (value) {&#10;        return Ext.String.format('&lt;a href=&quot;{0}&quot; target=&quot;_blank&quot;&gt;{1}&lt;/a&gt;', value, value);&#10;    }&#10;}}" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
@@ -324,6 +324,159 @@
     </context>
   </template>
   <template name="bestellunguebersicht_initcomponent" value="initComponent: function () {&#10;    this.items = this.buildItems();&#10;&#10;    this.callParent(arguments);&#10;},&#10;&#10;buildItems: function () {&#10;    return [&#10;        {&#10;            xtype: 'bestellung-bestellungformular'&#10;        },&#10;        {&#10;            xtype: 'bestellung-bestellunggrid'&#10;        }&#10;    ];&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellungformular_start" value="Ext.define('EED.view.bestellung.BestellungFormular', {&#10;    extend: 'Ext.form.Panel',&#10;&#10;    id: 'bestellung-bestellungformular',&#10;&#10;    alias: 'widget.bestellung-bestellungformular',&#10;&#10;    title: 'Neue Bestellung',&#10;&#10;    bodyPadding: 20,&#10;    autoHeight: true,&#10;    width: 500,&#10;&#10;    defaults: {&#10;        anchor: '100%',&#10;        labelWidth: 150,&#10;        allowBlank: false,&#10;        msgTarget: 'side'&#10;    },&#10;&#10;    //(bestellungformular_initcomponent)&#10;});" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellungformular_initcomponent" value="initComponent: function () {&#10;    this.items = this.buildItems();&#10;&#10;    this.buttons = this.buildButtons();&#10;&#10;    this.callParent(arguments);&#10;},&#10;&#10;buildItems: function () {&#10;    return [&#10;        //(bestellungformular_builditems)&#10;    ];&#10;},&#10;&#10;buildButtons: function () {&#10;    return [&#10;        {&#10;            text: 'Bestellung eintragen',&#10;            formBind: true,&#10;            disabled: true,&#10;            action: 'bestellungsave'&#10;        }&#10;    ];&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellungformular_builditems" value="{&#10;    xtype: 'combobox',&#10;    name: 'lieferant',&#10;    fieldLabel: 'Lieferant',&#10;    //(bestellungformular_store)&#10;    queryMode: 'local',&#10;    displayField: 'lieferant',&#10;    valueField: 'lieferant'&#10;},&#10;{&#10;    xtype: 'textfield',&#10;    name: 'bestellung',&#10;    fieldLabel: 'Bestellung'&#10;},&#10;{&#10;    xtype: 'numberfield',&#10;    name: 'preis',&#10;    fieldLabel: 'Preis',&#10;    minValue: 0,&#10;    hideTrigger: true,&#10;    keyNavEnabled: false,&#10;    mouseWheelEnabled: false&#10;},&#10;{&#10;    xtype: 'textfield',&#10;    name: 'besteller',&#10;    fieldLabel: 'Besteller'&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellunggrid_start" value="Ext.define('EED.view.bestellung.BestellungGrid', {&#10;    extend: 'Ext.grid.GridPanel',&#10;&#10;    //(bestellunggrid_requires)&#10;&#10;    id: 'bestellung-bestellunggrid',&#10;&#10;    alias: 'widget.bestellung-bestellunggrid',&#10;&#10;    title: 'Bestellungsübersicht',&#10;&#10;    height: 300,&#10;    width: 600,&#10;&#10;    //(bestellunggrid_features)&#10;&#10;    initComponent: function () {&#10;        this.columns = this.buildColumns();&#10;&#10;        this.callParent(arguments);&#10;&#10;        //(bestellunggrid_delete_event)&#10;    },&#10;&#10;    buildColumns: function () {&#10;        return [&#10;            //(bestellunggrid_columns)&#10;        ];&#10;    }&#10;});" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellunggrid_requires" value="requires: [&#10;    'EED.store.Bestellungen'&#10;],&#10;&#10;store: 'Bestellungen'," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellunggrid_features" value="features: [&#10;    {&#10;        id: 'group',&#10;        ftype: 'groupingsummary',&#10;        enableGroupingMenu: false&#10;    }&#10;]," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellunggrid_delete_event" value="this.addEvents(&#10;    /**&#10;     * @event bestellungdelete&#10;     * @param {Ext.grid.Panel} grid&#10;     * @param {Number} rowIndex&#10;     * @param {Number} colIndex&#10;     */&#10;    'bestellungdelete'&#10;);" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellunggrid_columns" value="{&#10;    header: 'Besteller',&#10;    width: 100,&#10;    dataIndex: 'besteller',&#10;    hideable: false,&#10;    summaryType: 'count',&#10;    summaryRenderer: function (value, summaryData, dataIndex) {&#10;        return ((value === 0 || value &gt; 1) ? '(' + value + ' Bestellungen)' : '(1 Bestellung)');&#10;    }&#10;},&#10;{&#10;    header: 'Bestellwunsch',&#10;    flex: 1,&#10;    dataIndex: 'bestellung',&#10;    summaryRenderer: function () { return ''; }&#10;},&#10;{&#10;    header: 'Preis',&#10;    width: 60,&#10;    dataIndex: 'preis',&#10;    hideable: false,&#10;    renderer: function (value) {&#10;        return Ext.util.Format.currency(value, ' €', 2, true);&#10;    },&#10;    summaryType: 'sum',&#10;    summaryRenderer: function (value) {&#10;        return Ext.util.Format.currency(value, ' €', 2, true);&#10;    }&#10;},&#10;{&#10;    xtype: 'actioncolumn',&#10;    hideable: false,&#10;    width: 50,&#10;    items: [&#10;        {&#10;            icon: './img/icon-delete.png',&#10;            tooltip: 'Löschen',&#10;            handler: function (grid, rowIndex, colIndex) {&#10;                this.fireEvent('bestellungdelete', grid, rowIndex, colIndex);&#10;            },&#10;            scope: this&#10;        }&#10;    ]&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellungformular_store" value="store: 'Lieferanten'," toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
