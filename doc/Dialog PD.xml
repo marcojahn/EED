@@ -34,7 +34,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="app_controllers" value="        controllers: [&#10;            'EED.controller.Lieferant',&#10;            'EED.controller.Bestellung'&#10;        ]," toReformat="false" toShortenFQNames="true">
+  <template name="app_controller_1" value="controllers: [&#10;    'EED.controller.Lieferant'&#10;    //(app_controller_2)&#10;]," toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
@@ -477,6 +477,210 @@
     </context>
   </template>
   <template name="bestellungformular_store" value="store: 'Lieferanten'," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellung_start" value="Ext.define('EED.model.Bestellung', {&#10;    extend: 'EED.model.EEDEntity',&#10;&#10;    idProperty: 'bestellungId',&#10;&#10;    fields: [&#10;        {name: 'bestellungId', mapping: '_id'},&#10;        {name: 'besteller', defaultValue: Ext.state.Manager.get('username', 'unbekannt')},&#10;        {name: 'lieferant'},&#10;        {name: 'bestellung'},&#10;        {name: 'preis'}&#10;    ]&#10;});" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="lieferant_start" value="Ext.define('EED.model.Lieferant', {&#10;    extend: 'EED.model.EEDEntity',&#10;&#10;    idProperty: 'lieferantId',&#10;&#10;    fields: [&#10;        {name: 'lieferantId', mapping: '_id'},&#10;        {name: 'lieferant', defaultValue: 'Lieferant-Name'},&#10;        {name: 'adresse'},&#10;        {name: 'telefon'},&#10;        {name: 'url', defaultValue: 'http://www.example.com'}&#10;    ]&#10;});" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellungen_start" value="Ext.define('EED.store.Bestellungen', {&#10;    extend: 'EED.common.data.Store',&#10;&#10;    storeId: 'Bestellungen',&#10;&#10;    //(bestellungen_model)&#10;});" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellungen_model" value="model: 'EED.model.Bestellung',&#10;&#10;//(bestellungen_proxy)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellungen_proxy" value="proxy: {&#10;    type: 'rest',&#10;    url: 'http://localhost:3000/bestellung'&#10;},&#10;&#10;autoSync: true,&#10;&#10;//(bestellungen_sorters)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellungen_sorters" value="sorters: {&#10;    property: 'lieferant',&#10;    direction: 'ASC'&#10;},&#10;&#10;groupField: 'lieferant'" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="lieferanten_start" value="Ext.define('EED.store.Lieferanten', {&#10;    extend: 'EED.common.data.Store',&#10;&#10;    model: 'EED.model.Lieferant',&#10;&#10;    storeId: 'Lieferanten',&#10;&#10;    proxy: {&#10;        type: 'rest',&#10;        url: 'http://localhost:3000/lieferant'&#10;    },&#10;&#10;    autoSync: true&#10;});" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellungcontroller_start" value="Ext.define('EED.controller.Lieferant', {&#10;    extend: 'Ext.app.Controller',&#10;&#10;    models: ['Lieferant'],&#10;    stores: ['Lieferanten'],&#10;&#10;    //(bestellungcontroller_refs)&#10;&#10;    /**&#10;     * Launch Methode des Controllers.&#10;     */&#10;    onLaunch: function () {&#10;        // Laden der Lieferanten&#10;        this.getLieferantenStore().load();&#10;&#10;        //(bestellungcontroller_control)&#10;    }//(bestellungcontroller_more)&#10;&#10;});" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="app_controller_2" value=",'EED.controller.Bestellung'" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellungcontroller_refs" value="refs: [&#10;    {&#10;        ref: 'lieferantengridDeleteButton',&#10;        selector: '#lieferant-lieferantengrid button[action=lieferant-remove]'&#10;    },&#10;    {&#10;        ref: 'lieferantengrid',&#10;        selector: '#lieferant-lieferantengrid'&#10;    }&#10;]," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellungcontroller_control" value="this.control({&#10;    '#lieferant-lieferantengrid button[action=lieferant-add]': {&#10;        click: this.addLieferant&#10;    },&#10;    '#lieferant-lieferantengrid button[action=lieferant-remove]': {&#10;        click: this.removeLieferant&#10;    },&#10;    '#lieferant-lieferantengrid': {&#10;        selectionchange: this.selectLieferant&#10;    }&#10;});" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bestellungcontroller_more" value=",&#10;&#10;/**&#10; * Neuen Lieferanten hinzufügen.&#10; */&#10;addLieferant: function () {&#10;    var store = this.getLieferantenStore(),&#10;        rowediting = this.getLieferantengrid().getPlugin('rowediting');&#10;&#10;    rowediting.cancelEdit(); // evtl. bestehenden Edit Prozess beenden&#10;&#10;    // Neuen Lieferant erzeugen&#10;    var r = Ext.create('EED.model.Lieferant');&#10;&#10;    store.insert(0, r); // Lieferant an erster Stelle hinzufügen&#10;    rowediting.startEdit(0, 0); // Edit Prozess für neuen Datensatz starten&#10;},&#10;&#10;/**&#10; * Lieferanten löschen.&#10; */&#10;removeLieferant: function () {&#10;    var sm = this.getLieferantengrid().getSelectionModel(),&#10;        store = this.getLieferantenStore(),&#10;        rowediting = this.getLieferantengrid().getPlugin('rowediting');&#10;&#10;    rowediting.cancelEdit();&#10;    store.remove(sm.getSelection());&#10;    if (store.getCount() &gt; 0) {&#10;        sm.select(0);&#10;    }&#10;},&#10;&#10;/**&#10; * Selektion eines Mandanten aktiviert oder deaktiviert den delete Button.&#10; *&#10; * @param {Ext.selection.Model} selModel SelectionModel des Grids.&#10; * @param {EED.model.Lieferant[]} records Liste ausgwählter Lieferanten.&#10; */&#10;selectLieferant: function (selModel, records) {&#10;    this.getLieferantengridDeleteButton().setDisabled(!records.length);&#10;}" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
