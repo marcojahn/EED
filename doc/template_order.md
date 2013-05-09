@@ -15,7 +15,16 @@
 
 # create new file view/lieferant/LieferantenGrid.js
 1. lieferantengrid_start
-1. lieferantengrid_columns (?)
 
 # create new file view/bestellung/BestellungUebersicht.js
 1. bestellunguebersicht_start
+1. bestellunguebersicht_initcomponent
+1. bestellunguebersicht_requires
+
+# create new file view/bestellung/BestellungFormular.js
+1. bestellungformular_start
+1. bestellungformular_initcomponent
+1. bestellungformular_builditems
+
+# create new file view/bestellung/BestellungGrid.js
+1. bestellunggrid_start
