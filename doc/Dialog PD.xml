@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templateSet group="Dialog PD">
-  <template name="app_start" value="Ext.application({&#10;    name: 'EED',&#10;    autoCreateViewport: false, // prevent viewport creation&#10;&#10;    //(app_requires)&#10;&#10;    //(app_controllers)&#10;&#10;    //(app_onbeforelaunch)&#10;&#10;    /**&#10;     * Launch application and create viewport&#10;     */&#10;    launch: function () {&#10;        Ext.create('EED.view.Viewport');&#10;    }&#10;});" toReformat="false" toShortenFQNames="true">
+  <template name="app_start" value="Ext.application({&#10;    name: 'EED',&#10;    autoCreateViewport: false, // prevent viewport creation&#10;&#10;    //(app_requires)&#10;&#10;    //(app_controller_1)&#10;&#10;    //(app_onbeforelaunch)&#10;&#10;    /**&#10;     * Launch application and create viewport&#10;     */&#10;    launch: function () {&#10;        Ext.create('EED.view.Viewport');&#10;    }&#10;});" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
@@ -391,7 +391,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="bestellunggrid_start" value="Ext.define('EED.view.bestellung.BestellungGrid', {&#10;    extend: 'Ext.grid.GridPanel',&#10;&#10;    //(bestellunggrid_requires)&#10;&#10;    id: 'bestellung-bestellunggrid',&#10;&#10;    alias: 'widget.bestellung-bestellunggrid',&#10;&#10;    title: 'Bestellungsübersicht',&#10;&#10;    height: 300,&#10;    width: 600,&#10;&#10;    //(bestellunggrid_features)&#10;&#10;    initComponent: function () {&#10;        this.columns = this.buildColumns();&#10;&#10;        this.callParent(arguments);&#10;&#10;        //(bestellunggrid_delete_event)&#10;    },&#10;&#10;    buildColumns: function () {&#10;        return [&#10;            //(bestellunggrid_columns)&#10;        ];&#10;    }&#10;});" toReformat="false" toShortenFQNames="true">
+  <template name="bestellunggrid_start" value="Ext.define('EED.view.bestellung.BestellungGrid', {&#10;    extend: 'Ext.grid.GridPanel',&#10;&#10;    //(bestellunggrid_store)&#10;&#10;    id: 'bestellung-bestellunggrid',&#10;&#10;    alias: 'widget.bestellung-bestellunggrid',&#10;&#10;    title: 'Bestellungsübersicht',&#10;&#10;    height: 300,&#10;    width: 600,&#10;&#10;    //(bestellunggrid_features)&#10;&#10;    initComponent: function () {&#10;        this.columns = this.buildColumns();&#10;&#10;        this.callParent(arguments);&#10;&#10;        //(bestellunggrid_delete_event)&#10;    },&#10;&#10;    buildColumns: function () {&#10;        return [&#10;            //(bestellunggrid_columns)&#10;        ];&#10;    }&#10;});" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
@@ -408,7 +408,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="bestellunggrid_requires" value="requires: [&#10;    'EED.store.Bestellungen'&#10;],&#10;&#10;store: 'Bestellungen'," toReformat="false" toShortenFQNames="true">
+  <template name="bestellunggrid_store" value="store: 'Bestellungen'," toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
@@ -612,7 +612,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="bestellungcontroller_start" value="Ext.define('EED.controller.Lieferant', {&#10;    extend: 'Ext.app.Controller',&#10;&#10;    models: ['Lieferant'],&#10;    stores: ['Lieferanten'],&#10;&#10;    //(bestellungcontroller_refs)&#10;&#10;    /**&#10;     * Launch Methode des Controllers.&#10;     */&#10;    onLaunch: function () {&#10;        // Laden der Lieferanten&#10;        this.getLieferantenStore().load();&#10;&#10;        //(bestellungcontroller_control)&#10;    }//(bestellungcontroller_more)&#10;&#10;});" toReformat="false" toShortenFQNames="true">
+  <template name="controllerlieferant_start" value="Ext.define('EED.controller.Lieferant', {&#10;    extend: 'Ext.app.Controller',&#10;&#10;    models: ['Lieferant'],&#10;    stores: ['Lieferanten'],&#10;&#10;    //(controllerlieferant_refs)&#10;&#10;    /**&#10;     * Launch Methode des Controllers.&#10;     */&#10;    onLaunch: function () {&#10;        // Laden der Lieferanten&#10;        this.getLieferantenStore().load();&#10;&#10;        //(controllerlieferant_control)&#10;    }//(controllerlieferant_more)&#10;&#10;});" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
@@ -646,7 +646,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="bestellungcontroller_refs" value="refs: [&#10;    {&#10;        ref: 'lieferantengridDeleteButton',&#10;        selector: '#lieferant-lieferantengrid button[action=lieferant-remove]'&#10;    },&#10;    {&#10;        ref: 'lieferantengrid',&#10;        selector: '#lieferant-lieferantengrid'&#10;    }&#10;]," toReformat="false" toShortenFQNames="true">
+  <template name="controllerlieferant_refs" value="refs: [&#10;    {&#10;        ref: 'lieferantengridDeleteButton',&#10;        selector: '#lieferant-lieferantengrid button[action=lieferant-remove]'&#10;    },&#10;    {&#10;        ref: 'lieferantengrid',&#10;        selector: '#lieferant-lieferantengrid'&#10;    }&#10;]," toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
@@ -663,7 +663,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="bestellungcontroller_control" value="this.control({&#10;    '#lieferant-lieferantengrid button[action=lieferant-add]': {&#10;        click: this.addLieferant&#10;    },&#10;    '#lieferant-lieferantengrid button[action=lieferant-remove]': {&#10;        click: this.removeLieferant&#10;    },&#10;    '#lieferant-lieferantengrid': {&#10;        selectionchange: this.selectLieferant&#10;    }&#10;});" toReformat="false" toShortenFQNames="true">
+  <template name="controllerlieferant_control" value="this.control({&#10;    '#lieferant-lieferantengrid button[action=lieferant-add]': {&#10;        click: this.addLieferant&#10;    },&#10;    '#lieferant-lieferantengrid button[action=lieferant-remove]': {&#10;        click: this.removeLieferant&#10;    },&#10;    '#lieferant-lieferantengrid': {&#10;        selectionchange: this.selectLieferant&#10;    }&#10;});" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
@@ -680,7 +680,143 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="bestellungcontroller_more" value=",&#10;&#10;/**&#10; * Neuen Lieferanten hinzufügen.&#10; */&#10;addLieferant: function () {&#10;    var store = this.getLieferantenStore(),&#10;        rowediting = this.getLieferantengrid().getPlugin('rowediting');&#10;&#10;    rowediting.cancelEdit(); // evtl. bestehenden Edit Prozess beenden&#10;&#10;    // Neuen Lieferant erzeugen&#10;    var r = Ext.create('EED.model.Lieferant');&#10;&#10;    store.insert(0, r); // Lieferant an erster Stelle hinzufügen&#10;    rowediting.startEdit(0, 0); // Edit Prozess für neuen Datensatz starten&#10;},&#10;&#10;/**&#10; * Lieferanten löschen.&#10; */&#10;removeLieferant: function () {&#10;    var sm = this.getLieferantengrid().getSelectionModel(),&#10;        store = this.getLieferantenStore(),&#10;        rowediting = this.getLieferantengrid().getPlugin('rowediting');&#10;&#10;    rowediting.cancelEdit();&#10;    store.remove(sm.getSelection());&#10;    if (store.getCount() &gt; 0) {&#10;        sm.select(0);&#10;    }&#10;},&#10;&#10;/**&#10; * Selektion eines Mandanten aktiviert oder deaktiviert den delete Button.&#10; *&#10; * @param {Ext.selection.Model} selModel SelectionModel des Grids.&#10; * @param {EED.model.Lieferant[]} records Liste ausgwählter Lieferanten.&#10; */&#10;selectLieferant: function (selModel, records) {&#10;    this.getLieferantengridDeleteButton().setDisabled(!records.length);&#10;}" toReformat="false" toShortenFQNames="true">
+  <template name="controllerlieferant_more" value=",&#10;&#10;/**&#10; * Neuen Lieferanten hinzufügen.&#10; */&#10;addLieferant: function () {&#10;    var store = this.getLieferantenStore(),&#10;        rowediting = this.getLieferantengrid().getPlugin('rowediting');&#10;&#10;    rowediting.cancelEdit(); // evtl. bestehenden Edit Prozess beenden&#10;&#10;    // Neuen Lieferant erzeugen&#10;    var r = Ext.create('EED.model.Lieferant');&#10;&#10;    store.insert(0, r); // Lieferant an erster Stelle hinzufügen&#10;    rowediting.startEdit(0, 0); // Edit Prozess für neuen Datensatz starten&#10;},&#10;&#10;/**&#10; * Lieferanten löschen.&#10; */&#10;removeLieferant: function () {&#10;    var sm = this.getLieferantengrid().getSelectionModel(),&#10;        store = this.getLieferantenStore(),&#10;        rowediting = this.getLieferantengrid().getPlugin('rowediting');&#10;&#10;    rowediting.cancelEdit();&#10;    store.remove(sm.getSelection());&#10;    if (store.getCount() &gt; 0) {&#10;        sm.select(0);&#10;    }&#10;},&#10;&#10;/**&#10; * Selektion eines Mandanten aktiviert oder deaktiviert den delete Button.&#10; *&#10; * @param {Ext.selection.Model} selModel SelectionModel des Grids.&#10; * @param {EED.model.Lieferant[]} records Liste ausgwählter Lieferanten.&#10; */&#10;selectLieferant: function (selModel, records) {&#10;    this.getLieferantengridDeleteButton().setDisabled(!records.length);&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="controllerbestellung_start" value="Ext.define('EED.controller.Bestellung', {&#10;    extend: 'Ext.app.Controller',&#10;&#10;    models: ['Bestellung'],&#10;    stores: ['Bestellungen'],&#10;&#10;    refs: [&#10;        {&#10;            ref: 'bestellungForm',&#10;            selector: 'bestellung-bestellungformular'&#10;        }&#10;    ],&#10;&#10;    /**&#10;     * Launch Methode des Controllers.&#10;     */&#10;    onLaunch: function () {&#10;        // Laden der Bestellungen&#10;        this.getBestellungenStore().load();&#10;&#10;        //(controllerbestellung_control)&#10;&#10;        // Formular initialisieren&#10;        this.createEmptyRecordAndBindToForm();&#10;    },&#10;&#10;    //(controllerbestellung_create)&#10;&#10;    //(controllerbestellung_load)&#10;&#10;    //(controllerbetellung_remove)&#10;&#10;    //(controllerbestellung_save)&#10;&#10;    //(controllerbestellung_update)&#10;});" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="controllerbestellung_control_1" value="this.control({&#10;    //(controllerbestellung_control_2)&#10;    'bestellung-bestellungformular button[action=bestellungsave]': {&#10;        click: this.saveBestellung&#10;    }&#10;});" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="controllerbestellung_create" value="/**&#10; * Erstellt ein leeres &lt;i&gt;Bestellung&lt;/i&gt; Model und verknüpft es mit dem Formular.&#10; */&#10;createEmptyRecordAndBindToForm: function () {&#10;    var newRecord = Ext.create('EED.model.Bestellung');&#10;    this.loadFormWithRecord(newRecord);&#10;}," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="controllerbestellung_load" value="/**&#10; * Verknüpft das Formular mit dem übergebenen Model und resetted die Validierung.&#10; *&#10; * @param {EED.model.Bestellung} record Bestellung Model&#10; */&#10;loadFormWithRecord: function (record) {&#10;    var form = this.getBestellungForm().getForm();&#10;    form.loadRecord(record);&#10;    form.clearInvalid();&#10;}," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="controllerbestellung_remove" value="/**&#10; * Entfernt eine Bestellung aus dem Store.&#10; *&#10; * @param {Ext.grid.Panel} grid GridPanel&#10; * @param {Number} rowIndex Index des ausgewählten Eintrages.&#10; */&#10;removeBestellung: function (grid, rowIndex) {&#10;    grid.getStore().removeAt(rowIndex);&#10;    var form = this.getBestellungForm().getForm();&#10;    form.clearInvalid();&#10;}," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="controllerbestellung_save" value="/**&#10; * Speichert eine Bestellung.&#10; */&#10;saveBestellung: function () {&#10;    var form = this.getBestellungForm().getForm(),&#10;        record = form.getRecord();&#10;&#10;    form.updateRecord(record);&#10;&#10;    // TODO: look for getter&#10;    if (record.phantom === true) { // neuer Eintrag&#10;        this.getBestellungenStore().add(record);&#10;    } else {&#10;        // update is a custom overwrite!&#10;        this.getBestellungenStore().update(record);&#10;    }&#10;&#10;    form.reset();&#10;    this.createEmptyRecordAndBindToForm();&#10;}," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="controllerbestellung_update" value="/**&#10; * Ausgewählten Eintrag in das Formular laden um ihn zu aktualisieren.&#10; *&#10; * @param {Ext.grid.View} view GridPanel View.&#10; * @param {EED.model.Bestellung} record Ausgewähltes Bestellung Model aus dem Grid.&#10; */&#10;updateBestellung: function (view, record) {&#10;    this.loadFormWithRecord(record);&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSP" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="controllerbestellung_control_2" value="'bestellung-bestellunggrid': {&#10;    'bestellungdelete': this.removeBestellung&#10;},&#10;'bestellung-bestellunggrid gridview': {&#10;    'itemdblclick': this.updateBestellung&#10;}," toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
