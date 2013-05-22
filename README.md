@@ -11,12 +11,20 @@ Ein lokaler Webserver für statische Dateien (z. B. Apache) muss verfügbar sein
 
 ## Environment Setup
 1. [NodeJS](http://nodejs.org/ "NodeJS") installieren
-    1. NPM muss funktionieren
+    1. [NPM](https://npmjs.org/ "NPM") muss funktionieren
     2. node.exe muss im Path verfügbar sein
 2. [MongoDB](http://www.mongodb.org/ "MongoDB") installieren
+3. [GruntJS](http://gruntjs.com/ "GruntJS") CLI installieren:
+
+        npm install -g grunt-cli
 
 ## Application Setup
-1. Github-Projekt in den Webserver auschecken.
+1. Github-Projekt auschecken
+
+        clone https://github.com/marcojahn/EED.git
+1. Abhängigkeiten installieren:
+
+        npm install
 2. In das Verzeichnis `server/node/` wechseln und Abhängigkeiten installieren:
 
         npm install
