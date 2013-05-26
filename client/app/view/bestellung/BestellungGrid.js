@@ -1,15 +1,11 @@
 Ext.define('EED.view.bestellung.BestellungGrid', {
     extend: 'Ext.grid.GridPanel',
 
-    requires: [
-        'EED.store.Bestellungen'
-    ],
+    store: 'Bestellungen',
 
     id: 'bestellung-bestellunggrid',
 
     alias: 'widget.bestellung-bestellunggrid',
-
-    store: 'Bestellungen',
 
     title: 'Bestellungsübersicht',
 

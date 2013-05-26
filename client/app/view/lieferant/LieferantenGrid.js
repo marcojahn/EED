@@ -1,10 +1,6 @@
 Ext.define('EED.view.lieferant.LieferantenGrid', {
     extend: 'Ext.grid.GridPanel',
 
-    requires: [
-        'EED.store.Lieferanten'
-    ],
-
     id: 'lieferant-lieferantengrid',
 
     alias: 'widget.lieferant-lieferantengrid',
