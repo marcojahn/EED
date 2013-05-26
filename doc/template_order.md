@@ -62,6 +62,7 @@
 1. app_controller_1
 
 ## f5
+wir können jetzt Lieferanten anlegen.
 
 # go to file controller/Lieferant.js
 1. controllerlieferant_control
@@ -69,11 +70,16 @@
 1. controllerlieferant_refs
 
 ## f5
+wir können jetzt Lieferanten aktualisieren und entfernen.
 
 # create new file controller/Bestellung.js
 1. controllerbestellung_start
 1. controllerbestellung_create
 1. controllerbestellung_load
+1. controllerbestellung_remove
+1. controllerbestellung_save
+1. controllerbestellung_update
+1. controllerbestellung_control
 
 # go to file view/bestellung/BestellungFormular.js
 1. bestellungformular_store
@@ -82,6 +88,13 @@
 1. app_controller_2
 
 ## f5
+wir können jetzt Bestellungen aufnehmen.
 
-# go to file controller/Bestellung.js
-1. controllerbestellung_control_1
+# go to file view/bestellung/BestellungGrid.js
+1. bestellunggrid_store
+1. bestellunggrid_features
+1. bestellunggrid_delete_event
+1. bestellunggrid_columns
+
+## f5
+wir können jetzt Bestellungen löschen.

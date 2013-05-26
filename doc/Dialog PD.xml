@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templateSet group="Dialog PD">
-  <template name="app_start" value="Ext.application({&#10;    name: 'EED',&#10;    autoCreateViewport: false, // prevent viewport creation&#10;&#10;    //(app_requires)&#10;&#10;    //(app_controller_1)&#10;&#10;    //(app_onbeforelaunch)&#10;&#10;    /**&#10;     * Launch application and create viewport&#10;     */&#10;    launch: function () {&#10;        Ext.create('EED.view.Viewport');&#10;    }&#10;});" toReformat="false" toShortenFQNames="true">
+  <template name="app_start" value="Ext.application({&#10;    name: 'EED',&#10;    autoCreateViewport: false, // prevent viewport creation&#10;&#10;    //(app_requires)&#10;&#10;    //(app_controller_1)&#10;&#10;    /**&#10;     * Shows and handles username dialog if no cookie value is set.&#10;     * Runs bootstrap if setting is done or exists.&#10;     */&#10;    onBeforeLaunch: function () {&#10;        if (!Ext.state.Manager.get('username', false)) {&#10;            var usernameWindow = Ext.widget('user-usernamewindow');&#10;    &#10;            usernameWindow.on('usernamevalid', function () {&#10;                Ext.app.Application.prototype.onBeforeLaunch.call(this);&#10;            }, this);&#10;            usernameWindow.on('usernameinvalid', function () {&#10;            });&#10;    &#10;            usernameWindow.show();&#10;        } else {&#10;            // call parent and continue bootstrap&#10;            Ext.app.Application.prototype.onBeforeLaunch.call(this);&#10;        }&#10;    },&#10;&#10;    /**&#10;     * Launch application and create viewport&#10;     */&#10;    launch: function () {&#10;        Ext.create('EED.view.Viewport');&#10;    }&#10;});" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
@@ -51,7 +51,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="app_onbeforelaunch" value="        /**&#10;         * Shows and handles username dialog if no cookie value is set.&#10;         * Runs bootstrap if setting is done or exists.&#10;         */&#10;        onBeforeLaunch: function () {&#10;            if (!Ext.state.Manager.get('username', false)) {&#10;                var usernameWindow = Ext.widget('user-usernamewindow');&#10;&#10;                usernameWindow.on('usernamevalid', function () {&#10;                    Ext.app.Application.prototype.onBeforeLaunch.call(this);&#10;                }, this);&#10;                usernameWindow.on('usernameinvalid', function () {&#10;                });&#10;&#10;                usernameWindow.show();&#10;            } else {&#10;                // call parent and continue bootstrap&#10;                Ext.app.Application.prototype.onBeforeLaunch.call(this);&#10;            }&#10;        }," toReformat="false" toShortenFQNames="true">
+  <template name="app_onbeforelaunch" value="/**&#10; * Shows and handles username dialog if no cookie value is set.&#10; * Runs bootstrap if setting is done or exists.&#10; */&#10;onBeforeLaunch: function () {&#10;    if (!Ext.state.Manager.get('username', false)) {&#10;        var usernameWindow = Ext.widget('user-usernamewindow');&#10;&#10;        usernameWindow.on('usernamevalid', function () {&#10;            Ext.app.Application.prototype.onBeforeLaunch.call(this);&#10;        }, this);&#10;        usernameWindow.on('usernameinvalid', function () {&#10;        });&#10;&#10;        usernameWindow.show();&#10;    } else {&#10;        // call parent and continue bootstrap&#10;        Ext.app.Application.prototype.onBeforeLaunch.call(this);&#10;    }&#10;}," toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
@@ -187,7 +187,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="lieferantengrid_start" value="Ext.define('EED.view.lieferant.LieferantenGrid', {&#10;    extend: 'Ext.grid.GridPanel',&#10;&#10;    //(lieferantengrid_requires)&#10;&#10;    id: 'lieferant-lieferantengrid',&#10;&#10;    alias: 'widget.lieferant-lieferantengrid',&#10;&#10;    //(lieferantengrid_store)&#10;&#10;    title: 'Lieferantenliste',&#10;&#10;    height: 400,&#10;&#10;    columns: [&#10;        //(lieferantengrid_columns)&#10;    ],&#10;&#10;    //(lieferantengrid_tbar)&#10;&#10;    selType: 'rowmodel',&#10;&#10;    plugins: [&#10;        Ext.create('Ext.grid.plugin.RowEditing', {&#10;            clicksToMoveEditor: 1,&#10;            autoCancel: false,&#10;            pluginId: 'rowediting'&#10;        })&#10;    ]&#10;});" toReformat="false" toShortenFQNames="true">
+  <template name="lieferantengrid_start" value="Ext.define('EED.view.lieferant.LieferantenGrid', {&#10;    extend: 'Ext.grid.GridPanel',&#10;&#10;    id: 'lieferant-lieferantengrid',&#10;&#10;    alias: 'widget.lieferant-lieferantengrid',&#10;&#10;    //(lieferantengrid_store)&#10;&#10;    title: 'Lieferantenliste',&#10;&#10;    height: 400,&#10;&#10;    columns: [&#10;        //(lieferantengrid_columns)&#10;    ],&#10;&#10;    //(lieferantengrid_tbar)&#10;&#10;    selType: 'rowmodel',&#10;&#10;    plugins: [&#10;        Ext.create('Ext.grid.plugin.RowEditing', {&#10;            clicksToMoveEditor: 1,&#10;            autoCancel: false,&#10;            pluginId: 'rowediting'&#10;        })&#10;    ]&#10;});" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
@@ -714,7 +714,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="controllerbestellung_control_1" value="this.control({&#10;    //(controllerbestellung_control_2)&#10;    'bestellung-bestellungformular button[action=bestellungsave]': {&#10;        click: this.saveBestellung&#10;    }&#10;});" toReformat="false" toShortenFQNames="true">
+  <template name="controllerbestellung_control" value="this.control({&#10;    'bestellung-bestellunggrid': {&#10;        'bestellungdelete': this.removeBestellung&#10;    },&#10;    'bestellung-bestellunggrid gridview': {&#10;        'itemdblclick': this.updateBestellung&#10;    },&#10;    'bestellung-bestellungformular button[action=bestellungsave]': {&#10;        click: this.saveBestellung&#10;    }&#10;});" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
@@ -800,23 +800,6 @@
     </context>
   </template>
   <template name="controllerbestellung_update" value="/**&#10; * Ausgewählten Eintrag in das Formular laden um ihn zu aktualisieren.&#10; *&#10; * @param {Ext.grid.View} view GridPanel View.&#10; * @param {EED.model.Bestellung} record Ausgewähltes Bestellung Model aus dem Grid.&#10; */&#10;updateBestellung: function (view, record) {&#10;    this.loadFormWithRecord(record);&#10;}" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="HTML_TEXT" value="false" />
-      <option name="HTML" value="false" />
-      <option name="XSL_TEXT" value="false" />
-      <option name="XML" value="false" />
-      <option name="CSS_PROPERTY_VALUE" value="false" />
-      <option name="CSS_DECLARATION_BLOCK" value="false" />
-      <option name="CSS_RULESET_LIST" value="false" />
-      <option name="CSS" value="false" />
-      <option name="JAVA_SCRIPT" value="true" />
-      <option name="JSP" value="false" />
-      <option name="CoffeeScript" value="false" />
-      <option name="HAML" value="false" />
-      <option name="OTHER" value="false" />
-    </context>
-  </template>
-  <template name="controllerbestellung_control_2" value="'bestellung-bestellunggrid': {&#10;    'bestellungdelete': this.removeBestellung&#10;},&#10;'bestellung-bestellunggrid gridview': {&#10;    'itemdblclick': this.updateBestellung&#10;}," toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
