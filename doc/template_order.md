@@ -63,6 +63,7 @@
 
 ## f5
 wir können jetzt Lieferanten anlegen.
+(imho hier noch nicht, erst mit den nächsten 3 Änderungen bauen wir die Features im Controller ein!!)
 
 # go to file controller/Lieferant.js
 1. controllerlieferant_control
