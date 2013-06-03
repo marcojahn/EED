@@ -5,7 +5,7 @@ App welche die Möglichkeiten von ExtJS demonstriert.
 # Travis Status
 [![Build Status](https://secure.travis-ci.org/marcojahn/EED.png)](https://travis-ci.org/marcojahn/EED)
 
-#Run Application
+# Run Application
 
 Ein lokaler Webserver für statische Dateien (z. B. Apache) muss verfügbar sein.
 
@@ -43,7 +43,10 @@ Ein lokaler Webserver für statische Dateien (z. B. Apache) muss verfügbar sein
 1. In das Verzeichnis / wechseln und Skeleton-Anwendung entpacken:
 
         grunt dialog
-2. Die `workspace.json` anpassen und anschließend die vorbereiteten Templates in WebStorm importieren:
+1. Den Workspace initialisieren:
+
+        grunt createworkspace
+2. Die generierte `workspace.json` anpassen und anschließend die vorbereiteten Templates in WebStorm importieren:
 
         grunt loadtemplates
 3. In einem Browser [localhost/dialog](http://localhost/dialog) aufrufen.
