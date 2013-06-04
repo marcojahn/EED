@@ -50,3 +50,4 @@ Ein lokaler Webserver für statische Dateien (z. B. Apache) muss verfügbar sein
 
         grunt loadtemplates
 3. In einem Browser [localhost/dialog](http://localhost/dialog) aufrufen.
+
