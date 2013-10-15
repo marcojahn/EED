@@ -34,7 +34,7 @@
 # create new file view/bestellung/BestellungGrid.js
 1. bestellunggrid_start
 
-## f5
+## f5, back to dialog
 
 # create new file model/Bestellung.js
 1. bestellung_start
@@ -61,9 +61,7 @@
 # go to file app.js
 1. app_controller_1
 
-## f5
-wir können jetzt Lieferanten anlegen.
-(imho hier noch nicht, erst mit den nächsten 3 Änderungen bauen wir die Features im Controller ein!!)
+## f5, back to dialog
 
 # go to file controller/Lieferant.js
 1. controllerlieferant_control
@@ -71,15 +69,11 @@ wir können jetzt Lieferanten anlegen.
 1. controllerlieferant_refs
 
 ## f5
-wir können jetzt Lieferanten aktualisieren und entfernen.
+wir können jetzt Lieferanten anlegen, aktualisieren und entfernen.
 
 # create new file controller/Bestellung.js
 1. controllerbestellung_start
-1. controllerbestellung_create
-1. controllerbestellung_load
-1. controllerbestellung_remove
-1. controllerbestellung_save
-1. controllerbestellung_update
+1. controllerbestellung_more
 1. controllerbestellung_control
 
 # go to file view/bestellung/BestellungFormular.js
@@ -89,7 +83,7 @@ wir können jetzt Lieferanten aktualisieren und entfernen.
 1. app_controller_2
 
 ## f5
-wir können jetzt Bestellungen aufnehmen.
+wir können jetzt Bestellungen aufnehmen, aber noch nicht im Grid sehen.
 
 # go to file view/bestellung/BestellungGrid.js
 1. bestellunggrid_store
@@ -98,4 +92,6 @@ wir können jetzt Bestellungen aufnehmen.
 1. bestellunggrid_columns
 
 ## f5
-wir können jetzt Bestellungen löschen.
+wir können jetzt Bestellungen löschen. Die Anwendung ist fertig!
+
+## back to dialog
