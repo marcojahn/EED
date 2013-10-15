@@ -5,6 +5,9 @@ App welche die Möglichkeiten von ExtJS demonstriert.
 # Travis Status
 [![Build Status](https://secure.travis-ci.org/marcojahn/EED.png)](https://travis-ci.org/marcojahn/EED)
 
+# Dependency Status
+[![Dependency Status](https://gemnasium.com/marcojahn/EED.png)](https://gemnasium.com/marcojahn/EED)
+
 #Run Application
 
 Ein lokaler Webserver für statische Dateien (z. B. Apache) muss verfügbar sein.
